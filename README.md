@@ -2,7 +2,7 @@
 新增使用github自动运行，无需自己的服务器
 教程：
 
-1、Fork 本仓库
+1、Fork 本仓库1
 
 2、在你 Fork 的仓库下的 Settings -> Secrets 页面追加以下几个secret秘密环境变量
 变量名	      含义	
