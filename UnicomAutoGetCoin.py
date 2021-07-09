@@ -13,8 +13,34 @@ import datetime
 import requests
 import ssl
 
+# TG配置
+TG_TOKEN = '1796673871:AAGt_-nkABHfWg0MCyRyyI7ulGHBv_ukHB0'  # TG机器人的TOKEN
+CHAT_ID = '1344781142'  # 推送消息的CHAT_ID
+
+# TG推送
+def tgPush(telegram_message):
+    params = (
+        ('chat_id', CHAT_ID),
+        ('text', telegram_message),
+        ('parse_mode', "Html"),  # 可选Html或Markdown
+        ('disable_web_page_preview', "yes")
+    )
+    telegram_url = "https://api.telegram.org/bot" + TG_TOKEN + "/sendMessage"
+    post(telegram_url, params=params)
+
+
+class UnicomSign():
+
+    def __init__(self):
+        self.UA = None
+        self.VERSION = '8.0200'
+        self.request = requests.Session()
+        self.resp = '联通营业厅签到通知 \n\n'
+        self.pid = pid
+
 ssl._create_default_https_context = ssl._create_unverified_context
 class Qiandao():
+    
 
     def __init__(self):
         self.cookie = http.cookiejar.CookieJar()
